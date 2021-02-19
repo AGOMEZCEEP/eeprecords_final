@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <odoo>
+ <!-- Action to open cantantes list -->
+ <act_window
+ id="action_cantantes"
+ name="EEP RECORDS"
+ res_model="cantante"
+ view_mode="tree,form"
+ />
+ <!-- top level menu: no parent -->
+ <menuitem
+ id="main_menu_cantantes"
+ name="EEP RECORDS APPLICATION"
+ />
+ <!-- A first level in the left side menu is needed
+before using action= attribute -->
+ <menuitem
+ id="l1_menu_eeprecords"
+ name="EEP RECORDS"
+ parent="main_menu_cantantes"
+ />
+ <!-- Menu item to open AGOMEZC list -->
+ <menuitem
+ id="menu_cantantes"
+ name="EEP RECORDS"
+ parent="l1_menu_eeprecords"
+ action="action_cantantes"
+ />
+<!-- Vista de listado -->
+<record id="view_tree_eeprecords" model="ir.ui.view">
+ <field name="name">EEP RECORDS Tree</field>
+ <field name="model">cantante</field>
+ <field name="arch" type="xml">
+ <tree>
+ <field name="name"/>
+ <field name="is_done"/>
+ </tree>
+ </field>
+</record>
+<!-- Vista de búsqueda -->
+<record id="view_filter_eeprecords" model="ir.ui.view">
+ <field name="name">EEP RECORDS Filter</field>
+ <field name="model">cantante</field>
+ <field name="arch" type="xml">
+ <search>
+ <field name="name"/>
+ <field name="name2"/>
+ <filter name="done" string="Hechas" domain="[('is_done','!=',False)]"/>
+ </search>
+ </field>
+</record>
+<!-- Vista de Formulario -->
+<record id="view_form_eeprecords" model="ir.ui.view">
+ <field name="name">EEP RECORDS Form</field>
+ <field name="model">cantante</field>
+  <field name="arch" type="xml">
+ <form>
+ <header>
+ <button name="do_marcar" type="object"
+string="Disponible" class="oe_highlight" />
+ <button name="do_limpiar" type="object"
+string="LIMPIAR" />
+ </header>
+ <sheet>
+ <group name="group_top">
+ <group name="group_left">
+ <field name="name"/>
+ <field name="name2"/>
+ </group>
+ <group name="group_right">
+ <field name="is_done"/>
+ <field name="active" readonly="1"/>
+ </group>
+ </group>
+ </sheet>
+ </form>
+ </field>
+</record>
+ </odoo>
+
+

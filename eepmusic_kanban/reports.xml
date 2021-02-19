@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	 <report
+		id="reports_eepmusic_canciones"
+		model="cantante"
+ 		string="canciones"
+		report_type="qweb-pdf"
+		name="eepmusic_kanban.reports_canciones"
+		attachment_use="False"
+		file="eepmusic_kanban.reports_canciones" /> 
+</odoo>
